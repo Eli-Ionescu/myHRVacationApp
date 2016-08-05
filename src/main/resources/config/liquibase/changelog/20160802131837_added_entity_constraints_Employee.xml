@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20160802131837-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="vacation_stock_id_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_vacationstockid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vacation_stock"/>
+
+        <addForeignKeyConstraint baseColumnNames="job_id_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_jobid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="job"/>
+
+        <addForeignKeyConstraint baseColumnNames="department_id_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_departmentid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+        <addForeignKeyConstraint baseColumnNames="employees_id"
+                                 baseTableName="employee_manager_id"
+                                 constraintName="fk_employee_manager_id_employees_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+        <addForeignKeyConstraint baseColumnNames="manager_ids_id"
+                                 baseTableName="employee_manager_id"
+                                 constraintName="fk_employee_manager_id_manager_ids_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+        
+    </changeSet>
+</databaseChangeLog>

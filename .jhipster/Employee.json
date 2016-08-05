@@ -1,0 +1,74 @@
+{
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "relationshipName": "vacationStockId",
+      "otherEntityName": "vacationStock",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "employee"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "relationshipName": "vacationRequestId",
+      "otherEntityName": "vacationRequest",
+      "otherEntityRelationshipName": "employee"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "jobId",
+      "otherEntityName": "job",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "departmentId",
+      "otherEntityName": "department",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "relationshipName": "managerId",
+      "otherEntityName": "employee",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "comment": "The firstname attribute.",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hireDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "salary",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "commissionPct",
+      "fieldType": "Long"
+    }
+  ],
+  "changelogDate": "20160802131837",
+  "javadoc": "The Employee entity.",
+  "entityTableName": "employee",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass"
+}

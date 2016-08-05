@@ -1,0 +1,26 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "jobId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "jobTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "minSalary",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxSalary",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160802131836",
+  "entityTableName": "job",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no"
+}

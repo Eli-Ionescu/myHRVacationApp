@@ -1,0 +1,29 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "streetAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160802131834",
+  "entityTableName": "location",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

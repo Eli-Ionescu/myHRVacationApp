@@ -1,0 +1,65 @@
+
+<div>
+    <h2><span>Employee</span> {{vm.employee.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>First Name</span></dt>
+        <dd>
+            <span>{{vm.employee.firstName}}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+            <span>{{vm.employee.lastName}}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+            <span>{{vm.employee.email}}</span>
+        </dd>
+        <dt><span>Phone Number</span></dt>
+        <dd>
+            <span>{{vm.employee.phoneNumber}}</span>
+        </dd>
+        <dt><span>Hire Date</span></dt>
+        <dd>
+            <span>{{vm.employee.hireDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Salary</span></dt>
+        <dd>
+            <span>{{vm.employee.salary}}</span>
+        </dd>
+        <dt><span>Commission Pct</span></dt>
+        <dd>
+            <span>{{vm.employee.commissionPct}}</span>
+        </dd>
+        <dt><span>Vacation Stock Id</span></dt>
+        <dd>
+            <a ui-sref="vacation-stock-detail({id:vm.employee.vacationStockId.id})">{{vm.employee.vacationStockId.id}}</a>
+        </dd>
+        <dt><span>Job Id</span></dt>
+        <dd>
+            <a ui-sref="job-detail({id:vm.employee.jobId.id})">{{vm.employee.jobId.id}}</a>
+        </dd>
+        <dt><span>Department Id</span></dt>
+        <dd>
+            <a ui-sref="department-detail({id:vm.employee.departmentId.id})">{{vm.employee.departmentId.id}}</a>
+        </dd>
+        <dt><span>Manager Id</span></dt>
+        <dd>
+            <span ng-repeat="managerId in vm.employee.managerIds">
+                <a ui-sref="employee-detail({id: managerId.id})">{{managerId.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="employee-detail.edit({id:vm.employee.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

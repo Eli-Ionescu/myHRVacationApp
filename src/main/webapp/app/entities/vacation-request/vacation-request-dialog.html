@@ -1,0 +1,66 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myVacationRequestLabel">Create or edit a Vacation Request</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.vacationRequest.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.vacationRequest.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_vacationDays">Vacation Days</label>
+            <input type="number" class="form-control" name="vacationDays" id="field_vacationDays"
+                    ng-model="vm.vacationRequest.vacationDays"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="vm.vacationRequest.status"
+                    ng-readonly="vm.hasStatusAuthority"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_period">Period</label>
+                <div class="input-group">
+                    <input id="field_period" type="text" class="form-control" name="period" datetime-picker="{{dateformat}}" ng-model="vm.vacationRequest.period" is-open="vm.datePickerOpenStatus.period"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('period')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_employee">Employee</label>
+            <select class="form-control" id="field_employee" name="employee" ng-model="vm.vacationRequest.employee" ng-options="employee as employee.id for employee in vm.employees track by employee.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary"
+            ng-if="vm.hasStatusAuthority">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+
+        <button type="submit" class="btn btn-default" ng-click="vm.aprove()"
+            ng-if="vm.hasSaveAuthority">
+            <span>Approve</span>
+        </button>
+
+        <button type="subit"  class="btn btn-default"  ng-click="vm.reject()"
+            ng-if="vm.hasSaveAuthority">
+            <span>Reject</span>
+        </button>
+    </div>
+</form>

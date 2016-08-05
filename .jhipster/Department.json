@@ -1,0 +1,25 @@
+{
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "locationId",
+      "otherEntityName": "location",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "departmentName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "locationId",
+      "fieldType": "Long"
+    }
+  ],
+  "changelogDate": "20160802131835",
+  "entityTableName": "department",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

@@ -1,0 +1,90 @@
+entity Location {
+	streetAddress String,
+	postalCode String,
+	city String required,
+	stateProvince String
+}
+
+entity Department {
+	departmentName String,
+    locationId Long
+}
+
+
+entity Job {
+	jobId String,
+	jobTitle String,
+	minSalary String,
+    maxSalary String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Employee {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	hireDate ZonedDateTime,
+	salary Long,
+	commissionPct Long
+}
+
+entity VacationStock{
+	freeDays BigDecimal        
+}
+
+entity VacationRequest{
+	vacationDays BigDecimal,
+    status String,
+    period ZonedDateTime
+}
+
+
+
+relationship ManyToOne {
+	Employee{jobId} to Job
+}
+
+
+relationship ManyToOne {
+	/**
+	* A relationship
+	*/
+	Employee{departmentId} to
+	/**
+	* Another side of the same relationship
+	*/
+	Department
+}
+
+relationship ManyToMany {
+	Employee{managerId} to Employee
+}
+
+
+relationship ManyToOne {
+	Department{locationId} to Location
+}
+
+relationship OneToOne{
+	Employee{vacationStockId} to VacationStock
+}
+
+relationship OneToMany{
+	Employee{vacationRequestId} to VacationRequest
+}
+
+
+
+paginate Employee with infinite-scroll
+paginate Job with pagination
+
+
+service Employee with serviceClass
+
+	

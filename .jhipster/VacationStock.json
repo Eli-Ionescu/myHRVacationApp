@@ -1,0 +1,14 @@
+{
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "freeDays",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "changelogDate": "20160802131838",
+  "entityTableName": "vacation_stock",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

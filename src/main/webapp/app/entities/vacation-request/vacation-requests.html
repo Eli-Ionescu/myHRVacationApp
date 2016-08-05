@@ -1,0 +1,65 @@
+<div>
+    <h2>Vacation Requests</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="vacation-request.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Vacation Request
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Vacation Days</span></th>
+                    <th><span>Status</span></th>
+                    <th><span>Period</span></th>
+                    <th><span>Employee</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="vacationRequest in vm.vacationRequests track by vacationRequest.id">
+                    <td><a ui-sref="vacation-request-detail({id:vacationRequest.id})">{{vacationRequest.id}}</a></td>
+                    <td>{{vacationRequest.vacationDays}}</td>
+                    <td>{{vacationRequest.status}}</td>
+                    <td>{{vacationRequest.period | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="employee-detail({id:vacationRequest.employee.id})">{{vacationRequest.employee.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="vacation-request-detail({id:vacationRequest.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="vacation-request.edit({id:vacationRequest.id})"
+                                    class="btn btn-primary btn-sm"
+                                    ng-if="vm.hasEditAuthority">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="vacation-request.delete({id:vacationRequest.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

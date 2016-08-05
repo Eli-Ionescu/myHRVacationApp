@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span>Vacation Request</span> {{vm.vacationRequest.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Vacation Days</span></dt>
+        <dd>
+            <span>{{vm.vacationRequest.vacationDays}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{vm.vacationRequest.status}}</span>
+        </dd>
+        <dt><span>Period</span></dt>
+        <dd>
+            <span>{{vm.vacationRequest.period | date:'medium'}}</span>
+        </dd>
+        <dt><span>Employee</span></dt>
+        <dd>
+            <a ui-sref="employee-detail({id:vm.vacationRequest.employee.id})">{{vm.vacationRequest.employee.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="vacation-request-detail.edit({id:vm.vacationRequest.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
