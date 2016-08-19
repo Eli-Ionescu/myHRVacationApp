@@ -14,31 +14,31 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Location.
+        Added the entity Job.
     -->
-    <changeSet id="20160802131846-1" author="jhipster">
-        <createTable tableName="location">
+    <changeSet id="20160802131833-1" author="jhipster">
+        <createTable tableName="team">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="street_address" type="varchar(255)">
+            <column name="team_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="postal_code" type="varchar(255)">
+            <column name="department_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="city" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
 
-            <column name="state_province" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="team"
+                                 constraintName="fk_team_depattment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
 
     </changeSet>
 </databaseChangeLog>

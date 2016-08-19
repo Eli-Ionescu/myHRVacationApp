@@ -20,10 +20,10 @@ spring:
     jackson:
         serialization.indent_output: true
     datasource:
-        url: jdbc:postgresql://localhost:5432/myHRAppConcediu
+        url: jdbc:postgresql://localhost:5432/postgres
         name:
-        username: demo
-        password: demo
+        username: postgres
+        password: admin
     jpa:
         database-platform: com.mycompany.myapp.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
@@ -49,7 +49,7 @@ liquibase:
     contexts: dev
 
 server:
-    port: 8080
+    port: 8081
 
 # ===================================================================
 # JHipster specific properties

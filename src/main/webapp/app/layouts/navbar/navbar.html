@@ -33,6 +33,12 @@
                     </a>
                     <ul class="dropdown-menu" uib-dropdown-menu>
                         <li ui-sref-active="active" >
+                            <a ui-sref="team" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span >Team</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active" >
                             <a ui-sref="location" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                                 <span >Location</span>
@@ -44,6 +50,7 @@
                                 <span >Department</span>
                             </a>
                         </li>
+
                         <li ui-sref-active="active" >
                             <a ui-sref="job" ng-click="vm.collapseNavbar()">
                                 <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
@@ -68,6 +75,7 @@
                                 <span >Vacation Request</span>
                             </a>
                         </li>
+
                         <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                     </ul>
                 </li>

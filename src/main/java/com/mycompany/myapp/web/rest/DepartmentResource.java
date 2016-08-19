@@ -26,10 +26,10 @@ import java.util.Optional;
 public class DepartmentResource {
 
     private final Logger log = LoggerFactory.getLogger(DepartmentResource.class);
-        
+
     @Inject
     private DepartmentRepository departmentRepository;
-    
+
     /**
      * POST  /departments : Create a new department.
      *
@@ -104,11 +104,18 @@ public class DepartmentResource {
     public ResponseEntity<Department> getDepartment(@PathVariable Long id) {
         log.debug("REST request to get Department : {}", id);
         Department department = departmentRepository.findOne(id);
-        return Optional.ofNullable(department)
-            .map(result -> new ResponseEntity<>(
-                result,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        if(department==null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(
+                department,
+                HttpStatus.OK);
+        }
+//        return Optional.ofNullable(department)
+//            .map(result -> new ResponseEntity<>(
+//                result,
+//                HttpStatus.OK))
+//            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**
